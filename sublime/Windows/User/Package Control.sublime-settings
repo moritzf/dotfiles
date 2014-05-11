@@ -1,0 +1,24 @@
+{
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"AlignTab",
+		"ApplySyntax",
+		"Calculate",
+		"FindKeyConflicts",
+		"Goto Documentation",
+		"LaTeX-cwl",
+		"LaTeXing",
+		"oauthlib",
+		"Package Control",
+		"PlainTasks",
+		"PowerShell",
+		"Sass",
+		"SASS Build",
+		"Shell Turtlestein",
+		"SublimeREPL",
+		"TikZ",
+		"Vintage Surround",
+		"Vintageous"
+	]
+}

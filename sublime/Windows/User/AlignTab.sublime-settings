@@ -1,0 +1,7 @@
+{
+	  "named_patterns": {
+     "fe": "=/f",
+     "fcom": ",/f",
+     "fcol": ":/f"
+  }
+}

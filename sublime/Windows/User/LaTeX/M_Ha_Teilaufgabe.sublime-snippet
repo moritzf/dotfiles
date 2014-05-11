@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+\begin{taufgabe}[$1)]
+      $2%\begin{align*}
+        $2%\text{\textbf{Geg}.: $3}\\\
+       $2%\text{\textbf{Ges}.: $4}
+    $2%\end{align*}
+$5%\begin{align*}
+$6
+$5%\end{align*}
+$7\begin{align*}
+$8
+$7\end{align*}
+$9
+$10%\begin{center}
+$10 %\textbf{Antwort:} $11
+$10%\end{center}
+\end{taufgabe}
+$12
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+ <tabTrigger>Mathe:Teilaufgabe</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.tex.latex</scope> -->
+</snippet>

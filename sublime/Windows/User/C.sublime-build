@@ -1,0 +1,4 @@
+{
+"cmd":["C:\\cygwin\\bin\\gcc.exe", "-std=c99", "${file}", "-o", "${file_path}/${file_base_name}", "&&", "${file_path}/${file_base_name}"],
+"shell":true
+}

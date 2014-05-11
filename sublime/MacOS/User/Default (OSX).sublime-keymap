@@ -1,0 +1,5 @@
+[
+	{ "keys": ["super+l","super+c"], "command": "insert_snippet", "args": {"name": "Packages/LaTeXing3/snippets/wrapper/command.sublime-snippet"}},
+	{ "keys": ["super+l","super+e"], "command": "insert_snippet", "args": {"name": "Packages/LaTeXing3/snippets/wrapper/environment.sublime-snippet"}},
+	{ "keys": ["ctrl+shift+x"], "command": "run_macro_file", "args": {"file": "Packages/User/Macros/semicolon.sublime-macro"}},
+]

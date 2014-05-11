@@ -1,4 +1,411 @@
-syntax on
+" # General Settings #
+"
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+" Enable auto-reload
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+set nocompatible " Set nocompatible mode
+
+syntax on " Enable Syntax Highlighting
+
+scriptencoding utf-8 " Enable Scriptencoding Utf-8
+
+set encoding=utf-8 " Enable Encoding Utf-8
+
+" Required for correct filetype detection
+filetype on
+filetype off
+
+" Yanks go on clipboard
+set clipboard+=unnamed
+
+" Number of things to remember
+set history=256
+
+" Line wrapping off
+set nowrap
+
+" Time to wait after ESC
+set timeoutlen=250
+
+" alt+n or alt+p to navigate between entries in QuickFix" >> .vimrc
+map <silent> <m-p> :cp <cr>
+map <silent> <m-n> :cn <cr>
+
+" Add recently accessed projects menu
+set viminfo^=!
+
+" Minibuffer Explorer Settings 
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1 
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+
+set cf  " Enable error files & error jumping.
+
+set autowrite  " Writes on make/shell commands
+
+" Formatting
+set nocp incsearch
+set formatoptions=tcqr
+
+"Visual
+set showmatch " Show matching brackets
+set mat=5 " Bracket blinking
+set novisualbell " No blinking
+set noerrorbells " No noise
+set hlsearch
+
+if has("win32")
+
+	"Set backupdir and temp dir 
+	set backupdir=C:\\Temporary,.
+
+	set directory=C:\\Temporary,.
+
+else
+
+	set backupdir=~/tmp,.
+
+	set directory=~/tmp,.
+
+endif
+
+" # Directory Shortcuts #
+
+if has("win32")
+	let $ac = "C:\\Files\\Active"	
+	let $in = "C:\\Files\\Inbox"	
+	let $fi = "C:\\Files"
+	let $ar = "C:\\Files\\Archive"	
+	let $bu	= "C:\\Users\\Moritz\\builds"
+	let $cfg = "C:\\Users\\Moritz\\ConfigFiles"
+else
+	let $ac = "/Users/moritz/Files/Active"
+	let $in = "/Users/moritz/Files/Inbox"
+	let $fi = "/Users/moritz/Files"
+	let $ar = "/Users/moritz/Files/Archive"
+	let $bu = "/Users/moritz/builds"
+	let $cfg = "/Users/moritz/ConfigFiles"
+
+endif
+
+" # Appearance #
+
+
+colorscheme Tomorrow-Night-Eighties" colorscheme
+
+" Set os-specific settings
+if has("win32")
+	
+	set guifont=Consolas:h14 " Set font and font-size
+	
+	set shell=powershell " Set default shell
+	
+	set shellcmdflag=-command " Set shell parameters
+
+	set statusline=%f
+else
+	
+	set guifont=inconsolata:h13 " Set font and font-size
+endif
+
+" Gui-Vim Options
+:set guioptions-=m  "remove menu bar
+:set guioptions-=T  "remove toolbar
+:set guioptions-=r  "remove right-hand scroll bar
+:set number " show line numbers
+
+set tw=80
+
+" # Tabs and Spaces
+
+
+" Syntax of these languages is fussy over tabs Vs spaces
+  autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+   
+" Customisations based on house-style (arbitrary)
+  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType * setlocal ts=2 sts=2 sw=2 expandtab 
+  
+
+" # Bundles #
+
+" Configuration of Vundle
+if has("win32")
+
+	set rtp+=C:\Users\Moritz\.vim\bundle\vundle " Set runtime path
+else
+
+	set rtp+=~/.dotfiles/vim/vim.symlink/bundle/vundle " Set runtime path
+
+endif
+
+call vundle#rc() " required for Vundle
+
+filetype plugin indent on "Allow indentation
+
+" My bundles
+Bundle 'gmarik/vundle'
+Bundle 'xuhdev/SingleCompile'
+Bundle 'tyru/open-browser.vim'
+"Bundle 'Townk/vim-autoclose'
+"Bundle 'vim-scripts/closetag.vim'
+Bundle 'SirVer/ultisnips'
+Bundle 'tpope/vim-surround'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'vim-scripts/DrawIt' 
+Bundle 'Raimondi/delimitMate'
+if has ("win32")
+
+else
+	Bundle 'scrooloose/syntastic'
+
+endif
+
+
+" # Standard Vim Mappings #
+
+
+"Spell checking
+
+highlight SpellBad term=reverse ctermbg=1
+if has("gui_running")
+	    highlight SpellBad term=underline gui=undercurl guisp=Red
+endif
+
+set spelllang=en_us,de,fr
+
+let mapleader = "," " Map <leader> key
+:set backspace=2 " Set standard backspace behavior
+
+" Map Spell
+nmap <silent> <leader>sc :setlocal spell!<CR>
+
+" Edit .vimrc quickly 
+nmap <leader>v :e $MYVIMRC<CR> 
+
+" Browse last opened files
+nmap <s-t> :browse old<cr>
+
+" Insert line above cursor without going into insert mode
+nmap <S-Enter> O<Esc>
+
+" Insert line under cursor without going into insert mode
+nmap <CR> o<Esc>
+
+" Change colorscheme day and night
+nmap <leader>csd :colorscheme Tomorrow<cr>
+nmap <leader>csn :colorscheme Tomorrow-Night-Eighties<cr>
+
+" Markdown files with special syntax highlighting
+au BufNewFile,BufRead *.md set filetype=plaintex
+au BufNewFile,BufRead *.markdown set filetype=plaintex
+au BufNewFile,BufRead *.js set filetype=javascript
+
+" Cpp file syntax 
+au BufNewFile,BufRead *.cpp set syntax=c
+" Tex files with tex syntax highlighting instead of plaintex
+" au BufNewFile,BufRead *.tex set filetype=plaintex
+let g:tex_flavor = "latex" " tex flavor 
+
+" Enable spell checking for markdown and latex files
+au BufNewFile,BufRead *.md setlocal spell 
+au BufNewFile,BufRead *.markdown setlocal spell 
+au BufNewFile,BufRead *.tex setlocal spell
+
+" Easier moving of code blocks
+
+vnoremap < <gv 
+vnoremap > >gv
+
+" # Plugin Config #
+
+
+" SingleCompile (Compile all files in with one interface)
+
+" Compile with SCCompile 
+map <F9> :SCCompile<CR>
+
+" Compile and run with SCCompile
+map <silent> <F10> :SCCompile<CR>:SCViewResult<CR>
+map <F8> :SCCompileRun<CR>
+
+" Pandoc (Converter e.g. Latex > Pdf)
+if has("win32")
+
+	" Markdown to Pdf
+	command MdPdf silent !pandoc % -o %:r.pdf
+
+	" Tex to Pdf
+	command TexPdf silent !pandoc -f latex % -o %:r.pdf 
+	command TxPdf !pdflatex % -output-directory=%:p:h
+
+	" Open Pdf
+	command OpenPdf silent !start-process %:r.pdf
+
+else
+
+	command! OpenPdf !open %:r.pdf
+
+	command! TexPdf !pandoc -s % -o %:r.pdf
+	command! TxPdf !pdflatex % -output-directory=%:p:h
+
+	command! MdPdf !pandoc % -o %:r.pdf
+
+endif
+
+" CtrlP (Fuzzy file search)
+
+let g:ctrlp_map = '<c-p>' "CtrlP Keyboard Shortcut
+
+let g:ctrlp_cmd = 'CtrlP' "CtrlP Command Mode Mapping
+
+let g:ctrlp_by_filename = 0 "search only by filename
+
+let g:ctrlp_clear_cache_on_exit = 0
+
+let g:ctrlp_max_depth = 10
+
+if has("win32")
+
+	set wildignore+=\\.git\\*,*\\AppData\\* "Ignore files or directories
+
+else
+
+	set wildignore+=*/Library/*,*/.git/*
+
+endif
+
+" Closetag (Close tags in html, xml, xsl)
+
+if has("win32")
+	
+	" Run close tag on when following filetype is detected	
+	:au Filetype html,xml,xsl source ~\.vim\bundle\closetag.vim\plugin\closetag.vim
+
+else
+	
+	:au Filetype html,xml,xsl source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
+
+endif
+
+" Autoclose (Close brackets etc. automatically)
+
+autocmd FileType html "if html is detected then add <> support
+              \ let b:AutoClosePairs = AutoClose#DefaultPairsModified("<>", "")
+
+" UltiSnips (Textmade snippet support)
+
+" Set UltiSnips triggers
+let g:UltiSnipsExpandTrigger="<tab>"                                            
+
+let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
+
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"  
+
+" Search in vim runtime path for snippets (default: UltiSnips)
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "MySnippets"]
+
+" Add filetype-detection support
+
+" Open-browser
+
+" Remap OpenBrowserSearch
+command! -nargs=* Search OpenBrowserSearch <args> 
+
+" List of search engines accessible with OpenBrowserSearch command
+let g:openbrowser_search_engines = {
+	\       'favorite': 'http://example.com/search?q={query}',
+	\       'g': 'http://google.com/search?q={query}',
+	\       'gcode': 'http://code.google.com/intl/en/query/#q={query}',
+	\       'py': 'https://www.google.de/search?q={query}+site%3Awww.python.org%2Fdoc%2F',
+	\       'java' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fdocs.oracle.com%2Fjavase%2F',
+	\	'js' : 'https://www.google.de/search?q={query}+site%3Ahttps%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FWeb%2FJavascript',
+	\	'hs' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fwww.haskell.org%2Fhaskellwiki%2F',
+	\	'rb' : 'https://www.google.de/search?q={query}+site%3Aruby-doc.org%2F%E2%80%8E',
+	\	'perl' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fperldoc.perl.org%2F',
+	\	'css' : 'https://www.google.de/search?q={query}+site%3Ahttps%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FWeb%2FCSS',
+	\	'vim' : 'http://www.google.com/cse?cx=partner-pub-3005259998294962%3Abvyni59kjr1&ie=ISO-8859-1&q={query}&sa=Search&siteurl=www.vim.org%2Fdocs.php',
+	\	'tex' : 'https://www.google.de/search?q={query}+site%3Aen.wikibooks.org%2Fwiki%2FLaTeX',
+	\	'texpackages' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fwww.ctan.org%2F',
+	\	'den' : 'http://www.dict.cc/?s={query}',
+	\	'dfr' : 'http://defr.dict.cc/?s={query}',
+	\	'sen' : 'http://thesaurus.com/browse/{query}',
+	\	'sfr' : 'http://www.conjugation-fr.com/conjugate.php?verb={query}&x=-844&y=-16',
+	\	'sde' : 'http://www.openthesaurus.de/synonyme/{query}',
+	\	'wolf': 'http://www.wolframalpha.com/input/?i={query}',
+	\	'wen' : 'http://en.wikipedia.org/wiki/Special:Search?search={query}',
+	\	'wde' : 'http://de.wikipedia.org/wiki/Special:Search?search={query}',
+	\	'c' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fen.cppreference.com%2Fw%2Fc%2F',
+	\	'cpp' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fen.cppreference.com%2Fw%2Fc%2F',	
+	\	'pw' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Ftechnet.microsoft.com%2Fen-us%2Flibrary%2F',
+	\	'bash' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fss64.com%2Fbash%2F',
+	\	'c#' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2F',
+	\	'lisp': 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fjtra.cz%2Fstuff%2Flisp%2Fsclr%2F',
+	\	'prolog' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fwww.swi-prolog.org%2Fpldoc%2F',
+	\	'octave' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fwww.gnu.org%2Fsoftware%2Foctave%2Fdoc%2Finterpreter%2F',
+	\	'r' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fwww.rdocumentation.org%2F',
+	\	'erlang': 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fwww.erlang.org%2F',
+	\	'clojure' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fclojure.org%2F',
+	\	'scala' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fdocs.scala-lang.org%2F',
+\}
+
+" Syntastic config
+
+" Set up statusline to show errors
+set statusline+=%#warningmsg#
+if has("win32")
+
+else
+	set statusline+=%{SyntasticStatuslineFlag()}
+endif
+set statusline+=%*
+
+"Error Sign highlighting
+if has ("win32")
+	
+	let g:syntastic_error_symbol = 'X'
+	
+	let g:syntastic_warning_symbol = '!'
+
+	highlight SignColumn guibg=black
+else
+
+	let g:syntastic_error_symbol = '✗'
+
+	let g:syntastic_warning_symbol = '⚠'
+
+	highlight SignColumn guibg=NONE
+
+endif
+
+" Linter settings
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_latex_checkers = ['chktex']
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_mri_args = "--my --args --here"
+let g:syntastic_aggreagate_errors = 1
+
+" Filetype mappings 
+let g:syntastic_filetype_map = { 'latex': 'tex'}
+
+" Fixing bug
+
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+
+" Delimit Mate Config
+let delimitMate_expand_cr = 2
+let delimitMate_balance_matchpairs = 1
+autocmd FileType html let b:delimitMate_matchpairs = '(:),[:],{:},<:>'
+let delimitMate_matchpairs = "(:),[:],{:}"
+let delimitMate_excluded_regions = "Comment"
+let delimitMate_jump_expansion = 1

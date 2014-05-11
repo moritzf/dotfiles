@@ -37,4 +37,8 @@ do
   source $file
 done
 
-unset config_files
+# enable vi Mode
+bindkey -v
+bindkey '^?' backward-delete-char
+export KEYTIMEOUT=1
+

@@ -1,0 +1,27 @@
+<snippet>
+	<content><![CDATA[
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+minor tick num=3,
+axis y line=center,
+axis x line=middle,
+xlabel=\$ ${1:x} \$,ylabel= \$ ${2:y} \$,legend entries={\$ ${3:a*x^2 + b*x + c} \$ ${4:,\$ m*x + t \$}}
+]
+\addplot[smooth,${5:black},mark=none,
+domain=${6:-4}:${7:4},samples=40]
+{${8:a*x^2 + b*x + c}};
+${9:\addplot[smooth,green,mark=none,
+domain=-4:4,samples=40]
+{m*x + t}}${10:;}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+$11
+]]>
+</content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>basic_graph</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.tex.latex</scope>
+</snippet>

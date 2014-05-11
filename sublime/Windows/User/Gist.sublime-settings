@@ -1,0 +1,11 @@
+{
+	// Your username on GitHub
+	"username": "greencocoa",
+
+	// Your password on GitHub
+	"password": "flatout123",
+
+	// Your GitHub API token
+	// see: https://github.com/condemil/Gist#generating-access-token
+	"token": "513c7a83ad117c4616508451b6cb78ceb8b6c6f4"
+}

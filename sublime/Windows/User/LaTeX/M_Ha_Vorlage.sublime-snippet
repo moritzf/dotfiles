@@ -1,0 +1,101 @@
+<snippet>
+	<content><![CDATA[
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{url}
+\usepackage{pgfplots}
+\usepackage[a4paper]{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{natbib}
+\usepackage{mhchem}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{longtable}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{microtype}
+\usepackage[fixFPpow]{tabularcalc}
+%---------------------------
+\pgfplotsset{width=7cm,compat=1.6}
+%---------------------------
+\addtolength{\evensidemargin}{-.5in}
+\addtolength{\oddsidemargin}{-.5in}
+\addtolength{\textwidth}{0.8in}
+\addtolength{\textheight}{0.8in}
+\addtolength{\topmargin}{-.4in}
+\newtheoremstyle{quest}{\topsep}{\topsep}{}{}{\bfseries}{}{ }{\thmname{#1}\thmnote{ #3}}
+\theoremstyle{quest}
+
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{aufgabe}{\large Aufgabe}
+\newtheorem*{question}{\normalsize Fragestellung:}
+\newtheorem*{exercise}{\"Ubung}
+\newtheorem*{taufgabe}{\small Teilaufgabe}
+\newtheorem*{challengeproblem}{Problembew\"altigung}
+\newcommand{\name}{%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% put your name here, so we know who to give credit to %%
+\today
+}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\hw}{%%%%%%%%%%%%%%%%%%%%
+%% and which homework assignment is it? %%%%%%%%%
+%% put the correct number below              %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$1
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\vspace{-50pt}
+\large \name
+\\vspace{20pt}
+\huge ${2:Mathe} \hfill ${3:Hausaufgabe} \hw}
+\author{Moritz F.}
+\date{}
+\pagestyle{myheadings}
+\markright{\name\hfill ${4:Hausaufgabe} \hw\qquad\hfill}
+
+%% If you want to define a new command, you can do it like this:
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+%% If you want to use a function like ''sin'' or ''cos'', you can do it like this
+%% (we probably won't have much use for this)
+% \DeclareMathOperator{\sin}{sin}   %% just an example (it's already defined)
+
+
+\begin{document}
+\maketitle
+
+\begin{aufgabe}
+$5
+\end{aufgabe}
+	\begin{question}
+	$6
+	\end{question}
+
+	\begin{taufgabe}[$7)]
+	\begin{align*}
+	$8
+	\end{align*}
+	\end{taufgabe}
+	$9
+\end{document}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+<tabTrigger>Mathe:Ha</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.tex.latex</scope> -->
+</snippet>

@@ -1,0 +1,11 @@
+<snippet>
+	<content>
+x_1 = $1
+x_2 = $2
+$3
+	</content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>Lsgformele</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.tex.latex</scope>
+</snippet>

@@ -1,0 +1,52 @@
+# Add autocompletion
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
+# Aliases
+alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
+alias subl=sublime
+alias lazygit="git add .; git commit -m '...'; git push;"
+
+# GIT
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '
+alias gk='gitk --all&'
+alias gx='gitx --all'
+
+alias got='git '
+alias get='git '
+
+# Variables
+cfg='/Users/moritz/ConfigFiles'
+fi='/Users/moritz/Files'
+in='/Users/moritz/Files/Inbox'
+ar='/Users/moritz/Files/Archive'
+ac='/Users/moritz/Files/Active'
+im='/Users/moritz/Files/Img'
+bu='/Users/moritz/code'
+
+eclipse='/Applications/eclipse'
+
+# set default editor to vim
+export EDITOR=vim
+
+# Set path variable
+export PATH=/usr/sbin:/usr/bin:/usr/local/bin:/user/local/sbin:/bin/:/usr/local/texlive/2013/bin/x86_64-darwin:/usr/local/texlive/2013/bin/universal-darwin
+
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+
+
+ #Set ls command color to orange
+export CLICOLOR= LSCOLORS=dxfxcxdxbxegedabagacad
+
+# Z Script (fuzzy search for directories)
+
+. /Users/moritz/ConfigFiles/z.sh
+
+# Vi commands in cmd
+set -o vi

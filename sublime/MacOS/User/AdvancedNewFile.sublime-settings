@@ -1,0 +1,19 @@
+{
+	"alias": {
+		"arch": "/Users/moritz/Files/Archive/",
+		"act": "/Users/moritz/Files/Active/",
+		"prog": "/Users/moritz/Files/Pers/Prog/",
+		"soft": "/Users/moritz/Files/Pers/Soft/",
+		"pers": "/Users/moritz/Files/Pers/",
+		"courses": "/Users/moritz/Files/Pers/Courses/",		
+		"snippets": "Users/moritz/Library/Application Support/Sublime Text 3/Packages/User/",	
+		"files": "/Users/moritz/Files/"		
+		},
+
+	"default_root": "path",
+
+    // A string specifying the default root to use. For this to be utilized,
+    // "default_root" must be set to "path"
+    "default_path": "/Users/moritz/Files/",
+
+}

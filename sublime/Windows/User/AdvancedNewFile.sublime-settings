@@ -1,0 +1,19 @@
+{
+	"alias": {
+		"schule": "C:\\Files\\Schule\\",
+		"prog": "C:\\Files\\Personal\\Prog\\",
+		"soft": "C:\\Files\\Personal\\Soft\\",
+		"moe": "C:\\Files\\Personal\\Persons\\Moritz\\",
+		"courses": "C:\\Files\\Personal\\Courses\\",		
+		"snippets": "C:\\Program Files\\Sublime Text3\\Data\\Packages\\User\\",	
+		"files": "C:\\Files\\",
+		"desktop": "C:\\Users\\Moritz\\Desktop",		
+		},
+
+	"default_root": "path",
+
+    // A string specifying the default root to use. For this to be utilized,
+    // "default_root" must be set to "path"
+    "default_path": "C:\\Files\\",
+
+}

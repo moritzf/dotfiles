@@ -1,0 +1,9 @@
+[
+	{ "keys": ["Ctrl+l","Ctrl+c"], "command": "insert_snippet", "args": {"name": "Packages/LaTeXing3/snippets/wrapper/command.sublime-snippet"}},
+	{ "keys": ["Ctrl+l","Ctrl+e"], "command": "insert_snippet", "args": {"name": "Packages/LaTeXing3/snippets/wrapper/environment.sublime-snippet"}},
+	{ "keys": ["Ctrl+Shift+x"], "command": "run_macro_file", "args": {"file": "Packages/User/Macros/semicolon.sublime-macro"}},
+	 {"keys": ["ctrl+shift+c"], "command": "shell_prompt"},
+        {"keys": ["shift+ctrl+alt+c"], "command": "subprocess_in_cwd", "args": {
+                "cmd": ["powershell"]
+        } }
+]

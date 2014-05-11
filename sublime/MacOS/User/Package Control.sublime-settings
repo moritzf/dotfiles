@@ -1,0 +1,19 @@
+{
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"AlignTab",
+		"ApplySyntax",
+		"Calculate",
+		"ColorPicker",
+		"Goto Documentation",
+		"LaTeX-cwl",
+		"LaTeXing",
+		"oauthlib",
+		"PlainTasks",
+		"Sass",
+		"SASS Build",
+		"Shell Turtlestein",
+		"TikZ"
+	]
+}

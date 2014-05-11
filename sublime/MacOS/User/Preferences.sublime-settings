@@ -1,0 +1,14 @@
+{
+	"color_scheme": "Packages/Colorsublime-Themes/Tomorrow_Night.tmTheme",
+	"font_face": "Inconsolata",
+	"ignored_packages":
+	[
+		"LaTeXing",
+		"Sass",
+		"PlainTasks"
+	],
+	"rulers":
+	[
+		80
+	]
+}

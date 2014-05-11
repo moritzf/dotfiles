@@ -1,0 +1,18 @@
+{
+	"color_scheme": "Packages/ColorSublime-Themes/Tomorrow Night.tmTheme",
+	"font_face": "Source Code Pro",
+	"font_size": 11,
+	"ignored_packages":
+	[
+		"Vintageous",
+		"ColorPicker",
+		"LaTeX-cwl",
+		"AdvancedNewFile",
+		"LaTeXing",
+		"Vintage"
+	],
+	"rulers":
+	[
+		80
+	]
+}

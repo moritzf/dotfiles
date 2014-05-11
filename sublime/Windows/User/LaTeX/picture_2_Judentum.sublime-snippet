@@ -1,0 +1,24 @@
+<snippet>
+	<content><![CDATA[
+\begin{figure}[H]
+        \begin{minipage}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\textwidth]{C:/Users/Moritz/Pictures/Judentum/$1}
+        \caption{$2\cite{$3}}
+        \label{$4}
+        \end{minipage}
+        \hspace{0.5cm}
+        \begin{minipage}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\textwidth]{C:/Users/Moritz/Pictures/Judentum/$5}
+        \caption{$6\cite{$7}}
+        \label{$8}
+        \end{minipage}
+        \end{figure}
+]]></content>
+
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>picture_2_Judentum</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.tex.latex</scope>
+</snippet>
