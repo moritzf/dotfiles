@@ -1,5 +1,4 @@
 " # General Settings #
-"
 
 " Enable auto-reload
 if has("autocmd")
@@ -24,11 +23,8 @@ set clipboard+=unnamed
 " Number of things to remember
 set history=256
 
-" Line wrapping off
-set nowrap
-
-" Time to wait after ESC
-set timeoutlen=250
+" Line wrapping
+set wrap linebreak nolist
 
 " alt+n or alt+p to navigate between entries in QuickFix" >> .vimrc
 map <silent> <m-p> :cp <cr>
@@ -49,14 +45,21 @@ set autowrite  " Writes on make/shell commands
 
 " Formatting
 set nocp incsearch
-set formatoptions=tcqr
+set formatoptions=ltcq
+set formatoptions+=w
+set lbr
+
+set autoindent
+set cindent
 
 "Visual
 set showmatch " Show matching brackets
-set mat=5 " Bracket blinking
 set novisualbell " No blinking
 set noerrorbells " No noise
 set hlsearch
+
+" Press Space to turn off highlighting and clear any message already displayed.
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 if has("win32")
 
@@ -133,6 +136,7 @@ set tw=80
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType * setlocal ts=2 sts=2 sw=2 expandtab 
+  autocmd FileType md setlocal ts=4 sts=4 sw=4 expandtab
   
 
 " # Bundles #

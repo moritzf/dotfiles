@@ -13,3 +13,6 @@ alias gx='gitx --all'
 
 # Alternative pager
 alias vless='vim -R'
+
+# Tmux alias
+alias tmux="TERM=screen-256color-bce tmux"
