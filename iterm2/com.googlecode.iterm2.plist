@@ -10546,7 +10546,7 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>275 179 924 485 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>356 80 570 451 0 0 1440 878 </string>
+	<string>289 197 570 451 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>296 86 570 451 0 0 1440 878 </string>
 	<key>New Bookmarks</key>
@@ -12066,7 +12066,7 @@
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
-	<true/>
+	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<false/>
 	<key>RightCommand</key>
@@ -12082,7 +12082,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-05-31T18:14:12Z</date>
+	<date>2014-07-20T21:43:48Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -12124,6 +12124,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>1.0.0.20140421</string>
+	<string>1.0.0.20140629</string>
 </dict>
 </plist>
