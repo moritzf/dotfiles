@@ -5,4 +5,3 @@ set -g status-bg "#1d1f21"
 set -g status-fg "#969896"
 set -sg escape-time 0
 set-window-option -g mode-keys vi
-

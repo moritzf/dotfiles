@@ -56,7 +56,6 @@ set cindent
 set showmatch " Show matching brackets
 set novisualbell " No blinking
 set noerrorbells " No noise
-set hlsearch
 
 " Press Space to turn off highlighting and clear any message already displayed.
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
@@ -222,8 +221,8 @@ let g:tex_flavor = "latex" " tex flavor
 
 " Enable spell checking for markdown and latex files
 au BufNewFile,BufRead *.md setlocal spell 
-au BufNewFile,BufRead *.markdown setlocal spell 
-au BufNewFile,BufRead *.tex setlocal spell
+au BufNewFile,BufRead *.markdown setlocal spell
+"au BufNewFile,BufRead *.tex setlocal spell
 
 " Easier moving of code blocks
 
@@ -265,6 +264,8 @@ else
 	command! MdPdf !pandoc % -o %:r.pdf
 
 endif
+
+map <F7> :OpenPdf<CR>
 
 " CtrlP (Fuzzy file search)
 
@@ -373,6 +374,7 @@ else
 endif
 set statusline+=%*
 
+
 "Error Sign highlighting
 if has ("win32")
 	
@@ -380,15 +382,13 @@ if has ("win32")
 	
 	let g:syntastic_warning_symbol = '!'
 
-	highlight SignColumn guibg=black
+	highlight SignColumn guibg=NONE
 else
 
 	let g:syntastic_error_symbol = '✗'
 
 	let g:syntastic_warning_symbol = '⚠'
-
 	highlight SignColumn guibg=NONE
-
 endif
 
 " Linter settings
