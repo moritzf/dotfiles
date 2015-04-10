@@ -102,7 +102,7 @@ colorscheme Tomorrow-Night-Eighties" colorscheme
 " Set os-specific settings
 if has("win32")
 	
-	set guifont=Consolas:h14 " Set font and font-size
+	set guifont=Consolas:h13 " Set font and font-size
 	
 	set shell=powershell " Set default shell
 	
@@ -143,7 +143,7 @@ set tw=80
 " Configuration of Vundle
 if has("win32")
 
-	set rtp+=C:\Users\Moritz\.vim\bundle\vundle " Set runtime path
+	set rtp+=C:\Users\Moritz\vimfiles\bundle\vundle " Set runtime path
 else
 
 	set rtp+=~/.dotfiles/vim/vim.symlink/bundle/vundle " Set runtime path
