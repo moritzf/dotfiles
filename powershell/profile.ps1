@@ -1,7 +1,7 @@
 Write-Host "Hi Moritz, welcome back!"
 
 Remove-Variable -Force profile
-set-location "C:\Files\Active"
+set-location "C:\Users\moritz\builds"
 
 Set-Variable psconfig "C:\Files\Active\ConfigFiles\PowerShell\profile.ps1"
 Set-Variable vimconfig "C:\Users\Moritz\ConfigFiles\.vimrc"
