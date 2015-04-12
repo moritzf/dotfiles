@@ -36,9 +36,12 @@ eclipse='/Applications/eclipse'
 export EDITOR=vim
 
 # Set path variable
-export PATH=/usr/sbin:/usr/bin:/usr/local/bin:/user/local/sbin:/bin/:/usr/local/texlive/2013/bin/x86_64-darwin:/usr/local/texlive/2013/bin/universal-darwin
+export PATH="/usr/sbin:/usr/bin:/usr/local/bin:/user/local/sbin:/bin/:/usr/local/texlive/2013/bin/x86_64-darwin:/usr/local/texlive/2013/bin/universal-darwin:/Users/moritz/android-sdk/sdk/platform-tools:/Users/moritz/android-sdk/sdk/tools"
 
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+
+# Android sdk
+export ANDROID_HOME="/Applications/Android Studio.app/sdk"
 
 
  #Set ls command color to orange

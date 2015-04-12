@@ -53,7 +53,6 @@ set autoindent
 set cindent
 
 "Visual
-set showmatch " Show matching brackets
 set novisualbell " No blinking
 set noerrorbells " No noise
 
@@ -120,7 +119,7 @@ endif
 :set guioptions-=r  "remove right-hand scroll bar
 :set number " show line numbers
 
-set tw=80
+:set tw=80
 
 " # Tabs and Spaces
 

@@ -1,3 +1,6 @@
+[user]
+	name = Moritz Finsterwalder
+	email = moritz.finsterwalder@gmail.com
 [include]
     path = ~/.gitconfig_private
 [credential]

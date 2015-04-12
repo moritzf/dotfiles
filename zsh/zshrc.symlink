@@ -4,6 +4,9 @@ export ZSH=$HOME/.dotfiles
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
 
+# path variable
+export PATH="/usr/sbin:/usr/bin:/usr/local/bin:/user/local/sbin:/bin/:/usr/local/texlive/2013/bin/x86_64-darwin:/usr/local/texlive/2013/bin/universal-darwin:/Users/moritz/android-sdk/sdk/platform-tools:/Users/moritz/android-sdk/sdk/tools"
+
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
 if [[ -a ~/.localrc ]]
