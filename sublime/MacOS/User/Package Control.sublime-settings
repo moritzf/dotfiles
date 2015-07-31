@@ -1,15 +1,20 @@
 {
+	"in_process_packages":
+	[
+	],
 	"installed_packages":
 	[
 		"AdvancedNewFile",
 		"AlignTab",
 		"ApplySyntax",
+		"AutoWrap",
 		"Calculate",
 		"ColorPicker",
-		"Goto Documentation",
+		"GotoDocumentation",
 		"LaTeX-cwl",
 		"LaTeXing",
-		"oauthlib",
+		"LPrint",
+		"Package Control",
 		"PlainTasks",
 		"Sass",
 		"SASS Build",

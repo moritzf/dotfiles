@@ -24,7 +24,7 @@ set clipboard+=unnamed
 set history=256
 
 " Line wrapping
-set wrap linebreak nolist
+set tw=80
 
 " alt+n or alt+p to navigate between entries in QuickFix" >> .vimrc
 map <silent> <m-p> :cp <cr>
@@ -55,6 +55,7 @@ set cindent
 "Visual
 set novisualbell " No blinking
 set noerrorbells " No noise
+:let loaded_matchparen = 1
 
 " Press Space to turn off highlighting and clear any message already displayed.
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
@@ -165,6 +166,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'vim-scripts/DrawIt' 
 Bundle 'Raimondi/delimitMate'
+Bundle 'vitalk/vim-simple-todo'
 if has ("win32")
 
 else

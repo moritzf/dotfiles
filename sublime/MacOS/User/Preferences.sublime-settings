@@ -1,9 +1,9 @@
 {
-	"color_scheme": "Packages/Colorsublime-Themes/Tomorrow_Night.tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Eiffel.tmTheme",
+	"dictionary": "Packages/User/Dictionary/German_de_DE.dic",
 	"font_face": "Inconsolata",
 	"ignored_packages":
 	[
-		"LaTeXing",
 		"Sass",
 		"PlainTasks"
 	],

@@ -4,5 +4,11 @@
 	"bibsonomy_username": "greencocoa",
 	"license": "dc56a35073120422209dd2cf13",
 	"output_directory": true,
-	"username": "moritz.finsterwalder@gmail.com"
+	"username": "moritz.finsterwalder@gmail.com",
+
+	 "pdf_viewer_osx": {
+        "preview": [
+            "/Applications/Preview.app"
+        ]
+    },
 }
