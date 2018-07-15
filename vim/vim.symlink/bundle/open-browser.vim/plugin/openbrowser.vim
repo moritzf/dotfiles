@@ -50,27 +50,32 @@ elseif g:__openbrowser_platform.macunix
     function! s:get_default_browser_commands()
         return [
         \   {'name': 'open',
-        \    'args': ['{browser}', '{uri}']}
+        \    'args': ['{browser}', '{uri}'],
+        \    'background': 1}
         \]
     endfunction
 elseif g:__openbrowser_platform.mswin
     function! s:get_default_browser_commands()
         return [
         \   {'name': 'rundll32',
-        \    'args': 'rundll32 url.dll,FileProtocolHandler {uri}'}
+        \    'args': 'rundll32 url.dll,FileProtocolHandler {use_vimproc ? uri : uri_noesc}'}
         \]
     endfunction
 elseif g:__openbrowser_platform.unix
     function! s:get_default_browser_commands()
         return [
         \   {'name': 'xdg-open',
-        \    'args': ['{browser}', '{uri}']},
+        \    'args': ['{browser}', '{uri}'],
+        \    'background': 1},
         \   {'name': 'x-www-browser',
-        \    'args': ['{browser}', '{uri}']},
+        \    'args': ['{browser}', '{uri}'],
+        \    'background': 1},
         \   {'name': 'firefox',
-        \    'args': ['{browser}', '{uri}']},
+        \    'args': ['{browser}', '{uri}'],
+        \    'background': 1},
         \   {'name': 'w3m',
-        \    'args': ['{browser}', '{uri}']},
+        \    'args': ['{browser}', '{uri}'],
+        \    'background': 1},
         \]
     endfunction
 endif
@@ -133,45 +138,32 @@ if !exists('g:openbrowser_fix_paths')
     let g:openbrowser_fix_paths = {}
 endif
 if !exists('g:openbrowser_default_search')
-    let g:openbrowser_default_search = 'g'
+    let g:openbrowser_default_search = 'google'
 endif
 
 let g:openbrowser_search_engines = extend(
 \   get(g:, 'openbrowser_search_engines', {}),
 \   {
-\       'g': 'http://google.com/search?q={query}',
-\       'gcode': 'http://code.google.com/intl/en/query/#q={query}',
-\       'py': 'https://www.google.de/search?q={query}+site%3Awww.python.org%2Fdoc%2F',
-\       'java' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fdocs.oracle.com%2Fjavase%2F',
-\	'js' : 'https://www.google.de/search?q={query}+site%3Ahttps%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FWeb%2FJavascript',
-\	'hs' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fwww.haskell.org%2Fhaskellwiki%2F',
-\	'rb' : 'https://www.google.de/search?q={query}+site%3Aruby-doc.org%2F%E2%80%8E',
-\	'perl' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fperldoc.perl.org%2F',
-\	'css' : 'https://www.google.de/search?q={query}+site%3Ahttps%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FWeb%2FCSS',
-\	'vim' : 'http://www.google.com/cse?cx=partner-pub-3005259998294962%3Abvyni59kjr1&ie=ISO-8859-1&q={query}&sa=Search&siteurl=www.vim.org%2Fdocs.php',
-\	'tex' : 'https://www.google.de/search?q={query}+site%3Aen.wikibooks.org%2Fwiki%2FLaTeX',
-\	'texpackages' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fwww.ctan.org%2F',
-\	'den' : 'http://www.dict.cc/?s={query}',
-\	'dfr' : 'http://defr.dict.cc/?s={query}',
-\	'sen' : 'http://thesaurus.com/browse/{query}',
-\	'sfr' : 'http://www.conjugation-fr.com/conjugate.php?verb={query}&x=-844&y=-16',
-\	'sde' : 'http://www.openthesaurus.de/synonyme/{query}',
-\	'wolf': 'http://www.wolframalpha.com/input/?i={query}',
-\	'wen' : 'http://en.wikipedia.org/wiki/Special:Search?search={query}',
-\	'wde' : 'http://de.wikipedia.org/wiki/Special:Search?search={query}',
-\	'c' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fen.cppreference.com%2Fw%2Fc%2F',
-\	'cpp' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fen.cppreference.com%2Fw%2Fc%2F',	
-\	'pw' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Ftechnet.microsoft.com%2Fen-us%2Flibrary%2F',
-\	'bash' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fss64.com%2Fbash%2F',
-\	'c#' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2F',
-\	'lisp': 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fjtra.cz%2Fstuff%2Flisp%2Fsclr%2F',
-\	'prolog' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fwww.swi-prolog.org%2Fpldoc%2F',
-\	'octave' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fwww.gnu.org%2Fsoftware%2Foctave%2Fdoc%2Finterpreter%2F',
-\	'r' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fwww.rdocumentation.org%2F',
-\	'erlang': 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fwww.erlang.org%2F',
-\	'clojure' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fclojure.org%2F',
-\	'scala' : 'https://www.google.de/search?q={query}+site%3Ahttp%3A%2F%2Fdocs.scala-lang.org%2F',
-\},
+\       'alc': 'http://eow.alc.co.jp/{query}/UTF-8/',
+\       'askubuntu': 'http://askubuntu.com/search?q={query}',
+\       'baidu': 'http://www.baidu.com/s?wd={query}&rsv_bp=0&rsv_spt=3&inputT=2478',
+\       'blekko': 'http://blekko.com/ws/+{query}',
+\       'cpan': 'http://search.cpan.org/search?query={query}',
+\       'devdocs': 'http://devdocs.io/#q={query}',
+\       'duckduckgo': 'http://duckduckgo.com/?q={query}',
+\       'github': 'http://github.com/search?q={query}',
+\       'google': 'http://google.com/search?q={query}',
+\       'google-code': 'http://code.google.com/intl/en/query/#q={query}',
+\       'php': 'http://php.net/{query}',
+\       'python': 'http://docs.python.org/dev/search.html?q={query}&check_keywords=yes&area=default',
+\       'twitter-search': 'http://twitter.com/search/{query}',
+\       'twitter-user': 'http://twitter.com/{query}',
+\       'verycd': 'http://www.verycd.com/search/entries/{query}',
+\       'vim': 'http://www.google.com/cse?cx=partner-pub-3005259998294962%3Abvyni59kjr1&ie=ISO-8859-1&q={query}&sa=Search&siteurl=www.vim.org%2F#gsc.tab=0&gsc.q={query}&gsc.page=1',
+\       'wikipedia': 'http://en.wikipedia.org/wiki/{query}',
+\       'wikipedia-ja': 'http://ja.wikipedia.org/wiki/{query}',
+\       'yahoo': 'http://search.yahoo.com/search?p={query}',
+\   },
 \   'keep'
 \)
 
@@ -181,8 +173,31 @@ endif
 if !exists('g:openbrowser_open_vim_command')
     let g:openbrowser_open_vim_command = 'vsplit'
 endif
-if !exists('g:openbrowser_short_message')
-    let g:openbrowser_short_message = 0
+
+let s:FORMAT_MESSAGE_DEFAULT = {
+\   'msg': "opening '{uri}' ... {done ? 'done! ({command})' : ''}",
+\   'truncate': 1,
+\   'min_uri_len': 15,
+\}
+if !exists('g:openbrowser_format_message')
+    let g:openbrowser_format_message = s:FORMAT_MESSAGE_DEFAULT
+elseif type(g:openbrowser_format_message) is type("")
+    " Backward-compatibility
+    let s:msg = g:openbrowser_format_message
+    unlet g:openbrowser_format_message
+    let g:openbrowser_format_message = extend(
+    \   s:FORMAT_MESSAGE_DEFAULT, {'msg': s:msg}, 'force')
+else
+    let g:openbrowser_format_message = extend(
+    \   g:openbrowser_format_message, s:FORMAT_MESSAGE_DEFAULT, 'keep')
+endif
+unlet s:FORMAT_MESSAGE_DEFAULT
+
+if !exists('g:openbrowser_use_vimproc')
+    let g:openbrowser_use_vimproc = 1
+endif
+if !exists('g:openbrowser_force_foreground_after_open')
+    let g:openbrowser_force_foreground_after_open = 0
 endif
 " }}}
 
@@ -227,6 +242,28 @@ nnoremap <silent> <Plug>(openbrowser-search) :<C-u>call openbrowser#_keymapping_
 vnoremap <silent> <Plug>(openbrowser-search) :<C-u>call openbrowser#_keymapping_search('v')<CR>
 nnoremap <silent> <Plug>(openbrowser-smart-search) :<C-u>call openbrowser#_keymapping_smart_search('n')<CR>
 vnoremap <silent> <Plug>(openbrowser-smart-search) :<C-u>call openbrowser#_keymapping_smart_search('v')<CR>
+
+
+" Popup menus for Right-Click
+if !get(g:, 'openbrowser_no_default_menus', 0)
+    nmenu PopUp.-OpenBrowserSep- :
+    vmenu PopUp.-OpenBrowserSep- :
+    if get(g:, 'openbrowser_menu_lang', &langmenu !=# '' ? &langmenu : v:lang) ==# 'ja'
+        nmenu <silent> PopUp.カーソル下のURLを開く <Plug>(openbrowser-open)
+        vmenu <silent> PopUp.カーソル下のURLを開く <Plug>(openbrowser-open)
+        nmenu <silent> PopUp.カーソル下の単語を開く <Plug>(openbrowser-search)
+        vmenu <silent> PopUp.カーソル下の単語を開く <Plug>(openbrowser-search)
+        nmenu <silent> PopUp.カーソル下の単語かURLを開く <Plug>(openbrowser-smart-search)
+        vmenu <silent> PopUp.カーソル下の単語かURLを開く <Plug>(openbrowser-smart-search)
+    else
+        nmenu <silent> PopUp.Open\ URL <Plug>(openbrowser-open)
+        vmenu <silent> PopUp.Open\ URL <Plug>(openbrowser-open)
+        nmenu <silent> PopUp.Open\ Word(s) <Plug>(openbrowser-search)
+        vmenu <silent> PopUp.Open\ Word(s) <Plug>(openbrowser-search)
+        nmenu <silent> PopUp.Open\ URL\ or\ Word(s) <Plug>(openbrowser-smart-search)
+        vmenu <silent> PopUp.Open\ URL\ or\ Word(s) <Plug>(openbrowser-smart-search)
+    endif
+endif
 
 " }}}
 

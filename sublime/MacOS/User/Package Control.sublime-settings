@@ -1,4 +1,5 @@
 {
+	"bootstrapped": true,
 	"in_process_packages":
 	[
 	],
@@ -10,15 +11,22 @@
 		"AutoWrap",
 		"Calculate",
 		"ColorPicker",
+		"Fix Mac Path",
 		"GotoDocumentation",
 		"LaTeX-cwl",
 		"LaTeXing",
 		"LPrint",
+		"MarkdownEditing",
+		"MarkdownLight",
+		"MarkdownPreview",
+		"MarkdownTOC",
 		"Package Control",
+		"Pandown",
 		"PlainTasks",
 		"Sass",
 		"SASS Build",
 		"Shell Turtlestein",
+		"Theme - Soda",
 		"TikZ"
 	]
 }

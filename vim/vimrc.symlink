@@ -134,9 +134,8 @@ endif
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType * setlocal ts=2 sts=2 sw=2 expandtab 
-  autocmd FileType md setlocal ts=4 sts=4 sw=4 expandtab
-  
+  autocmd FileType markdown setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType * setlocal ts=4 sts=4 sw=4 expandtab
 
 " # Bundles #
 
@@ -158,8 +157,8 @@ filetype plugin indent on "Allow indentation
 Bundle 'gmarik/vundle'
 Bundle 'xuhdev/SingleCompile'
 Bundle 'tyru/open-browser.vim'
-"Bundle 'Townk/vim-autoclose'
-"Bundle 'vim-scripts/closetag.vim'
+Bundle 'Townk/vim-autoclose'
+Bundle 'vim-scripts/closetag.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
@@ -246,7 +245,7 @@ map <F8> :SCCompileRun<CR>
 if has("win32")
 
 	" Markdown to Pdf
-	command MdPdf silent !pandoc % -o %:r.pdf
+	command MdPdf !pandoc % -o %:r.pdf
 
 	" Tex to Pdf
 	command TexPdf silent !pandoc -f latex % -o %:r.pdf 
@@ -265,8 +264,6 @@ else
 	command! MdPdf !pandoc % -o %:r.pdf
 
 endif
-
-map <F7> :OpenPdf<CR>
 
 " CtrlP (Fuzzy file search)
 

@@ -2,13 +2,19 @@
 	"color_scheme": "Packages/Color Scheme - Default/Eiffel.tmTheme",
 	"dictionary": "Packages/User/Dictionary/German_de_DE.dic",
 	"font_face": "Inconsolata",
+	"font_size": 13,
 	"ignored_packages":
 	[
+		"Markdown",
+		"PlainTasks",
 		"Sass",
-		"PlainTasks"
+		"Vintage"
 	],
 	"rulers":
 	[
 		80
-	]
+	],
+	"soda_classic_tabs": true,
+	"theme": "Soda Light 3.sublime-theme",
+	"translate_tabs_to_spaces": true
 }

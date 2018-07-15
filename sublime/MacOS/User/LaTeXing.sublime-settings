@@ -2,13 +2,9 @@
 	"bibsonomy": false,
 	"bibsonomy_apikey": "8e14109ecb1d6249a438d84874ffa902",
 	"bibsonomy_username": "greencocoa",
-	"license": "dc56a35073120422209dd2cf13",
-	"output_directory": true,
-	"username": "moritz.finsterwalder@gmail.com",
-
-	 "pdf_viewer_osx": {
-        "preview": [
-            "/Applications/Preview.app"
-        ]
-    },
+	"output_directory": "true",
+	"output_directory_mode": 0,
+	"forward_sync": true,
+    "reverse_sync": true,
+	"path": ["/usr/local/texlive/2013/bin/x86_64-darwin"],
 }

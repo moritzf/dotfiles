@@ -31,11 +31,11 @@ function! SingleCompile#templates#tex#Initialize()
 
 	" latexmk which automatically calls pdflatex, but runs it multiple times
 	" to that all references are sorted out correctly.
-"	call SingleCompile#SetCompilerTemplate('tex', 'latexmk', 'latexmk',
-"				\ 'latexmk', '-pdf',
-"				\ SingleCompile#GetDefaultOpenCommand() .
-"               \ ' "$(FILE_TITLE)$.pdf"')
-"    call SingleCompile#SetPriority('tex', 'latexmk', 30)
+	call SingleCompile#SetCompilerTemplate('tex', 'latexmk', 'latexmk',
+				\ 'latexmk', '-pdf',
+				\ SingleCompile#GetDefaultOpenCommand() .
+                \ ' "$(FILE_TITLE)$.pdf"')
+    call SingleCompile#SetPriority('tex', 'latexmk', 30)
 endfunction
 
 "vim703: cc=78

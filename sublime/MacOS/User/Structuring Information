@@ -1,0 +1,42 @@
+Structuring Information
+
+1. Problems
+
+- rigidity through fixed markup.
+
+problem: As knowledge grows, it has to be structured. Subtopics get expanded 
+and demand their own files. This necessitates wide-ranging changes in markdown, 
+which is cumbersome.
+
+solution: indentation
+
+indentation problems: gets cumbersome to edit, requires zooming
+implementation: workflowy, all other implentations unusable
+
+no orientation in formatted text as you don't know the meaning of a specific markup
+
+problem: As a document grows, it becomes more difficult to know what certain markup indicates. For example, you might not know what the difference is between bold text and italic text as a heading style in a long document
+
+solution: keep documents shorts so that they required 3 levels at maximum
+
+solution: use numbers
+problem: fixed markup, keep track of numbering, numbering distracting
+
+1. option: use combination of Caps, numbers and files
+2. option: use combination of markup and files
+
+use combination of unordered and ordered lists
+
+use keywords
+
+use spacing
+
+outline thinking
+
+think of outline beforehand
+
+write down outline 
+
+Roman numerals as top-level numbering, then decimal
+
+split into files, also possibility

@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# pdfdir-copy     http://github.com/bronson/pdfdir
+# Scott Bronson
+# 16 May 2009
+#
+#    usage: pdfdir-copy src-dir destination-dir
+#
+# Uses ghostscript to re-encode an entire directory hierarchy of PDF files.
+# This is the best way to remove encryption and recompress but it does take
+# considerable CPU time.
+#
+# TODO: We don't bomb out on empty files.  We probably should.
+# TODO: We show ugly ghostscript output and no progress info.  Ugh.
+
+srcdir="$1"
+dstdir="$2"
+
+if [ -z "$srcdir" ] || [ -z "$dstdir" ]; then
+	echo "usage: $(basename "$0") src-dir destination-dir"
+	exit
+fi
+
+mkdir -p "$dstdir" || exit
+
+find $srcdir -name "*.pdf" | while read i; do
+	echo "$i"
+	echo "$i" >> /tmp/errout
+	mkdir -p "$dstdir/$(dirname "$i")"
+	gs -sDEVICE=pdfwrite -sOUTPUTFILE="$dstdir/$i" -dBATCH -dNOPAUSE "$i" 2>>/tmp/errout || echo "$i" >> /tmp/badfiles
+done
+

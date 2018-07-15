@@ -1,0 +1,7 @@
+cd /Users/moritz/builds/w-seminar-itg
+pandoc -o content.tex chapters/*.md --chapters --biblatex --smart
+biber Main
+pdflatex Main.tex -output-directory=`pwd`
+if [ -z "`lsof -c Preview | grep Main.pdf`" ]; then
+  open Main.pdf
+fi
