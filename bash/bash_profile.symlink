@@ -53,3 +53,8 @@ export CLICOLOR= LSCOLORS=dxfxcxdxbxegedabagacad
 
 # Vi commands in cmd
 set -o vi
+
+# Set language
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8

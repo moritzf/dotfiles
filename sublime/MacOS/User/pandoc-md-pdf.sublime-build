@@ -1,0 +1,4 @@
+{
+    "shell_cmd": "pandoc $file -o $file_path/$file_base_name.pdf --toc --toc-depth=4 -V lang=de -V urlcolor=cyan  -V papersize=a4 --number-sections && open $file_path/$file_base_name.pdf",
+    "selector": "source.md",
+}

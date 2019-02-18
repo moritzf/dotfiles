@@ -1,8 +1,36 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Eiffel.tmTheme",
+	"added_words":
+	[
+		"todos"
+	],
+	"color_scheme": "Packages/MarkdownLight/MarkdownLight.tmTheme",
 	"dictionary": "Packages/User/Dictionary/German_de_DE.dic",
-	"font_face": "Inconsolata",
-	"font_size": 13,
+	"file_exclude_patterns":
+	[
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.db",
+		"*.sublime-workspace",
+		"*.pdf"
+	],
+	"font_face": "Monospace",
+	"font_size": 12,
 	"ignored_packages":
 	[
 		"Markdown",
@@ -10,11 +38,8 @@
 		"Sass",
 		"Vintage"
 	],
-	"rulers":
-	[
-		80
-	],
+	"line_numbers": false,
 	"soda_classic_tabs": true,
-	"theme": "Soda Light 3.sublime-theme",
+	"theme": "Soda Light.sublime-theme",
 	"translate_tabs_to_spaces": true
 }
